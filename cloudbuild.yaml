@@ -29,7 +29,7 @@ steps:
 
 #
 # This step generates the new manifest
-- name: 'gcr.io/cloud-builders/git'
+- name: 'gcr.io/cloud-builders/gcloud'
   id: Generate manifest
   entrypoint: /bin/sh
   args:
