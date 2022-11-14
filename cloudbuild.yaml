@@ -1,9 +1,5 @@
 # Clone the git repo.
 steps:
-- name: 'gcr.io/cloud-builders/git'
-  id: 'Clone'
-  args: ['clone', 'https://github.com/mayurkasliwal/gke-ci-cd-demo.git']
-
 # This step builds the container image.
 # [START cloudbuild]
 # This step runs the unit tests on the app
@@ -39,16 +35,17 @@ steps:
   - '-c'
   - |
      set -x
+     git config --global user.name "mandarsdroid" && \
+     git config --global user.email "mandarsdroid@gmail.com" && \
+     git branch
      sed "s/GOOGLE_CLOUD_PROJECT/anthos-sandbox-275220/g" kubernetes.yaml.tpl | \
      sed "s/COMMIT_SHA/${SHORT_SHA}/g" > manifests/dev/kubernetes.yaml
      cat manifests/dev/kubernetes.yaml
-     git config --global user.name "mayurkasliwal" && \
-     git config --global user.email "mayur7kasliwal@gmail.com" && \
-     git fetch origin master && git checkout master  && \
+     git fetch origin main && git checkout main  && \
      git add . && \
      git commit -m "Manifest from commit $COMMIT_SHA && \
      $(git log --format=%B -n 1 $COMMIT_SHA)" 
      git config user.name
-     git push https://mayurkasliwal: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@github.com/mayurkasliwal/gke-ci-cd-demo.git
+     git push https://mandarsdroid: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@github.com/mandarsdroid/boa-sample.git
 # [END cloudbuild-delivery]
 
