@@ -47,7 +47,12 @@ steps:
      git commit -m "Manifest from commit $COMMIT_SHA && \
      $(git log --format=%B -n 1 $COMMIT_SHA)" 
      git config user.name
-     git push https://mandarsdroid:$$PASSWORD@github.com/mandarsdroid/boa-sample.git
+     cd ..
+     git clone https://mandarsdroid:$$PASSWORD@github.com/mandarsdroid/boa-manifests.git
+     cp boa-sample/manifests/dev/kubernetes.yaml boa-manifests/manifests/dev/kubernetes.yaml
+     cd boa-manifests 
+     git add . && git commit -m "push to manifests repo" \
+     git push https://mandarsdroid:$$PASSWORD@github.com/mandarsdroid/boa-manifests.git
   secretEnv: ['PASSWORD']
 availableSecrets:
   secretManager:
