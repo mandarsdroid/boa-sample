@@ -49,7 +49,7 @@ steps:
      git config user.name
      git push https://mandarsdroid:$$PASSWORD@github.com/mandarsdroid/boa-sample.git
   secretEnv: ['PASSWORD']
-  availableSecrets:
+availableSecrets:
   secretManager:
   - versionName: projects/anthos-sandbox-275220/secrets/repopush/versions/latest
     env: 'PASSWORD'
