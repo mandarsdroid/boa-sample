@@ -51,9 +51,10 @@ steps:
      cd ..
      pwd
      git clone https://mandarsdroid:$$PASSWORD@github.com/mandarsdroid/boa-manifests.git
-     pwd
-     cp boa-sample/manifests/dev/kubernetes.yaml boa-manifests/manifests/dev/kubernetes.yaml
      cd boa-manifests 
+     pwd
+     cp /workspace/boa-sample/manifests/dev/kubernetes.yaml /boa-manifests/manifests/dev/kubernetes.yaml
+     ls -l manifests/dev
      git add . && git commit -m "push to manifests repo" \
      git push https://mandarsdroid:$$PASSWORD@github.com/mandarsdroid/boa-manifests.git
   secretEnv: ['PASSWORD']
