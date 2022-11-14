@@ -27,12 +27,7 @@ steps:
   - 'push'
   - 'gcr.io/anthos-sandbox-275220/my-repository/hello-cloudbuild:$SHORT_SHA'
 
-- name: gcr.io/cloud-builders/gcloud
-
-  entrypoint: 'bash'
-
-  args: [ '-c', 'export _PUSH_ACCOUNT=$(gcloud secrets versions access latest --secret=repopush)' ]
-  #
+#
 # This step generates the new manifest
 - name: 'gcr.io/cloud-builders/git'
   id: Generate manifest
@@ -40,7 +35,8 @@ steps:
   args:
   - '-c'
   - |
-     echo ${_PUSH_ACCOUNT}
+     export _PUSH_ACCOUNT=$(gcloud secrets versions access latest --secret=repopush)
+     echo $_PUSH_ACCOUNT
      set -x
      git config --global user.name "mandarsdroid" && \
      git config --global user.email "mandarsdroid@gmail.com" && \
