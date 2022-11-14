@@ -39,10 +39,10 @@ steps:
      git config --global user.name "mandarsdroid" && \
      git config --global user.email "mandarsdroid@gmail.com" && \
      git branch
+     cat manifests/dev/kubernetes.yaml
+     git checkout develop  && git pull \
      sed "s/GOOGLE_CLOUD_PROJECT/anthos-sandbox-275220/g" kubernetes.yaml.tpl | \
      sed "s/COMMIT_SHA/${SHORT_SHA}/g" > manifests/dev/kubernetes.yaml
-     cat manifests/dev/kubernetes.yaml
-     git fetch origin main && git checkout main  && \
      git add . && \
      git commit -m "Manifest from commit $COMMIT_SHA && \
      $(git log --format=%B -n 1 $COMMIT_SHA)" 
