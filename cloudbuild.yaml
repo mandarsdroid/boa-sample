@@ -46,6 +46,6 @@ steps:
      git commit -m "Manifest from commit $COMMIT_SHA && \
      $(git log --format=%B -n 1 $COMMIT_SHA)" 
      git config user.name
-     git push https://mandarsdroid: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@github.com/mandarsdroid/boa-sample.git
+     git push https://mandarsdroid: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@github.com/mandarsdroid/boa-sample.git
 # [END cloudbuild-delivery]
 
