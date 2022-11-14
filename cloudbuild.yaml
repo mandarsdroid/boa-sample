@@ -35,9 +35,9 @@ steps:
   args:
   - '-c'
   - |
-     export _PUSH_ACCOUNT=$(gcloud secrets versions access latest --secret=repopush)
-     echo $_PUSH_ACCOUNT
      set -x
+     export _PUSH_ACCOUNT=$(gcloud secrets versions access latest --secret=repopush) \
+     echo $_PUSH_ACCOUNT \
      git config --global user.name "mandarsdroid" && \
      git config --global user.email "mandarsdroid@gmail.com" && \
      git branch
