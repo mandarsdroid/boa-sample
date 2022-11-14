@@ -52,6 +52,7 @@ steps:
      git clone https://mandarsdroid:$$PASSWORD@github.com/mandarsdroid/boa-manifests.git
      cd boa-manifests 
      pwd
+     rm -f /boa-manifests/manifests/dev/kubernetes.yaml
      cp /kubernetes.yaml /boa-manifests/manifests/dev/kubernetes.yaml
      ls -l manifests/dev
      git add . && git commit -m "push to manifests repo"
