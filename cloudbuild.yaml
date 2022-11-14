@@ -38,7 +38,7 @@ steps:
      set -x
      git config --global user.name "mandarsdroid" && \
      git config --global user.email "mandarsdroid@gmail.com" && \
-     git branch
+     git branch -a
      sed "s/GOOGLE_CLOUD_PROJECT/anthos-sandbox-275220/g" kubernetes.yaml.tpl | \
      sed "s/COMMIT_SHA/${SHORT_SHA}/g" > manifests/dev/kubernetes.yaml
      cat manifests/dev/kubernetes.yaml
@@ -47,7 +47,6 @@ steps:
      git commit -m "Manifest from commit $COMMIT_SHA && \
      $(git log --format=%B -n 1 $COMMIT_SHA)" 
      git config user.name
-     git checkout develop
      git push https://mandarsdroid:$$PASSWORD@github.com/mandarsdroid/boa-sample.git
   secretEnv: ['PASSWORD']
 availableSecrets:
@@ -55,4 +54,5 @@ availableSecrets:
   - versionName: projects/anthos-sandbox-275220/secrets/repopush/versions/latest
     env: 'PASSWORD'
 # [END cloudbuild-delivery]
+
 
