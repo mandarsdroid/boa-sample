@@ -47,13 +47,12 @@ steps:
      git commit -m "Manifest from commit $COMMIT_SHA && \
      $(git log --format=%B -n 1 $COMMIT_SHA)" 
      git config user.name
-     pwd
+     cp manifests/dev/kubernetes.yaml /kubernetes.yaml
      cd ..
-     pwd
      git clone https://mandarsdroid:$$PASSWORD@github.com/mandarsdroid/boa-manifests.git
      cd boa-manifests 
      pwd
-     cp /workspace/boa-sample/manifests/dev/kubernetes.yaml /boa-manifests/manifests/dev/kubernetes.yaml
+     cp /kubernetes.yaml /boa-manifests/manifests/dev/kubernetes.yaml
      ls -l manifests/dev
      git add . && git commit -m "push to manifests repo" \
      git push https://mandarsdroid:$$PASSWORD@github.com/mandarsdroid/boa-manifests.git
