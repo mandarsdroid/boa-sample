@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
       - name: hello-cloudbuild
-        image: us-central1-docker.pkg.dev/anthos-sandbox-275220/my-repository/hello-cloudbuild:68cd475
+        image: us-central1-docker.pkg.dev/anthos-sandbox-275220/my-repository/hello-cloudbuild:8d356a8
         ports:
         - containerPort: 8080
 ---
