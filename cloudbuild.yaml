@@ -47,7 +47,7 @@ steps:
      git commit -m "Manifest from commit $COMMIT_SHA && \
      $(git log --format=%B -n 1 $COMMIT_SHA)" 
      git config user.name
-     git push https://mandarsdroid:$$PASSWORD@github.com/mandarsdroid/boa-sample.git
+     git push https://mandarsdroid:$$PASSWORD@github.com/mandarsdroid/boa-manifests.git
   secretEnv: ['PASSWORD']
 availableSecrets:
   secretManager:
