@@ -54,7 +54,7 @@ steps:
      pwd
      cp /kubernetes.yaml /boa-manifests/manifests/dev/kubernetes.yaml
      ls -l manifests/dev
-     git add . && git commit -m "push to manifests repo" \
+     git add . && git commit -m "push to manifests repo"
      git push https://mandarsdroid:$$PASSWORD@github.com/mandarsdroid/boa-manifests.git
   secretEnv: ['PASSWORD']
 availableSecrets:
