@@ -31,7 +31,7 @@ steps:
 
   entrypoint: 'bash'
 
-  args: [ '-c', 'export PUSHAC=$(gcloud secrets versions access latest --secret=repopush)' ]
+  args: [ '-c', 'export {_PUSH_ACCOUNT}=$(gcloud secrets versions access latest --secret=repopush)' ]
   #
 # This step generates the new manifest
 - name: 'gcr.io/cloud-builders/git'
@@ -40,7 +40,7 @@ steps:
   args:
   - '-c'
   - |
-     echo $PUSHAC
+     echo ${_PUSH_ACCOUNT}
      set -x
      git config --global user.name "mandarsdroid" && \
      git config --global user.email "mandarsdroid@gmail.com" && \
@@ -53,6 +53,6 @@ steps:
      git commit -m "Manifest from commit $COMMIT_SHA && \
      $(git log --format=%B -n 1 $COMMIT_SHA)" 
      git config user.name
-     git push https://mandarsdroid:$PUSHAC@github.com/mandarsdroid/boa-sample.git
+     git push https://mandarsdroid:${_PUSH_ACCOUNT}@github.com/mandarsdroid/boa-sample.git
 # [END cloudbuild-delivery]
 
